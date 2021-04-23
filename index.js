@@ -1,7 +1,7 @@
 const fs = require('fs');
 const http = require('http');
 var requests = require('requests');
-
+const {apikey} = require('./essential');
  const dataread = fs.readFileSync("home.html", "utf-8");
 
 
@@ -17,7 +17,7 @@ var requests = require('requests');
 const server = http.createServer((req, res) => {
 
     if (req.url == "/") {
-        requests( "http://api.openweathermap.org/data/2.5/weather?q=Delhi&appid=c2f807a6cc40516f888d11f96f02bae4")
+        requests(apikey )
             .on('data',  (chunk)=> {
                 const objdata = JSON.parse(chunk);
                 //   console.log(objdata);
