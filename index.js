@@ -6,9 +6,9 @@ const {apikey} = require('./essential');
 
 
  const replaceVal = (tempval , orgval) =>{
-     let temperature = tempval.replace("{%tempval%}",(orgval.main.temp - 273).toFixed(2));
-      temperature = temperature.replace("{%tempmax%}",(orgval.main.temp_max - 273).toFixed(2));
-      temperature = temperature.replace("{%tempmin%}",(orgval.main.temp_min - 273).toFixed(2));
+     let temperature = tempval.replace("{%tempval%}",orgval.main.temp );
+      temperature = temperature.replace("{%tempmax%}",orgval.main.temp_max );
+      temperature = temperature.replace("{%tempmin%}",orgval.main.temp_min) ;
       temperature = temperature.replace("{%location%}",orgval.name);
       temperature = temperature.replace("{%country%}",orgval.sys.country);
       temperature = temperature.replace("{%tempstts%}",orgval.weather[0].main);
